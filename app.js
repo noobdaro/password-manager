@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require('path');
 
+
 const session = require('express-session')
 
 const connectDB =  require('./config/db');
@@ -8,6 +9,8 @@ connectDB();
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(session({
    secret: "mysecretkey",
@@ -22,6 +25,9 @@ app.set('views', path.join(__dirname, 'views'));
 // Routes
 const authRoutes = require('./routes/authRoute');
 app.use(authRoutes);
+
+const passwordRoutes = require('./routes/passwordRoute');
+app.use(passwordRoutes);
 
 app.get('/dashboard', (req, res, next)=>{
    if(!req.session.isLoggedIn){

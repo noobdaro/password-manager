@@ -58,8 +58,9 @@ const postLogin = (req, res, next)=>{
 
         req.session.isLoggedIn = true;
         req.session.user = user;
+        console.log('session user: ', req.session.user);
 
-        return res.redirect("/dashboard");
+        return res.redirect("/passwords");
     })
    }).catch((err)=>{
    return console.log(err)

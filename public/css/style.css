@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: #e5e7eb;
+  min-height: 100vh;
+}
+
+/* container */
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+/* card */
+.card {
+  background: #020617;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  margin-bottom: 20px;
+}
+
+/* headings */
+h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+/* inputs */
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  color: #e5e7eb;
+}
+
+input:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+
+/* buttons */
+button {
+  background: #38bdf8;
+  color: #020617;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* links */
+a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* password item */
+.password-item {
+  background: #020617;
+  border: 1px solid #1e293b;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.password-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* danger button */
+.btn-danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+
+  .container {
+    margin: 20px;
+    padding: 10px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .password-actions {
+    flex-direction: column;
+  }
+
+  .password-actions button {
+    width: 100%;
+  }
+
+}
