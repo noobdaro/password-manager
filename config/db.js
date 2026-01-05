@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const connectDB = () =>{
-    mongoose.connect('mongodb+srv://harshitteotia2000_db_user:Rsf3wGOtIywVI8TD@cluster0.rjhwcwp.mongodb.net/PasswordManager?appName=Cluster0', ).then(()=>{
+    mongoose.connect(process.env.MONGODB_URI).then(()=>{
    console.log('MongoDB connected');
     }).catch((err)=>{
         console.log(err);
