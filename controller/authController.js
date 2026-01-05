@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/user')
 
+//Signup
 const getSignup = (req, res) =>{
 res.render('signup');
 };
@@ -34,4 +35,35 @@ User.findOne({email}).then((existingUser)=>{
 });
 };
 
-module.exports = {getSignup, postSignup};
+//Login
+const getLogin = (req, res, next) =>{
+    res.render("Login");
+};
+
+const postLogin = (req, res, next)=>{
+    const {email, password} = req.body;
+
+   User.findOne({email}).then((user)=>{
+    if(!user){
+      return  res.send('user not found signup');
+    }
+
+    bcrypt.compare(password, user.password, (err, isMatch)=>{
+        if(err){
+           return console.log(err);
+        }
+        if(!isMatch){
+            return res.send('Invalid password');
+        }
+
+        req.session.isLoggedIn = true;
+        req.session.user = user;
+
+        return res.redirect("/dashboard");
+    })
+   }).catch((err)=>{
+   return console.log(err)
+   });
+};
+
+module.exports = {getSignup, postSignup, getLogin, postLogin};
