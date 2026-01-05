@@ -23,7 +23,7 @@ User.findOne({email}).then((existingUser)=>{
             password: hashedPassword
         });
         user.save().then(()=>{
-           return res.send("signup succesful");
+           return res.redirect('/login');
         }).catch ((err)=>{
             console.log(err)
         });
